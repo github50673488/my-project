@@ -21,4 +21,9 @@ h1 {
   font-weight: normal;
 }
 
+.hello {
+  text-align: center;
+  color: #2c3e50;
+}
+
 </style>

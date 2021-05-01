@@ -1,10 +1,17 @@
 <template>
   <div id="app">
     <!--    <img src="./assets/logo.png">-->
-<!--    <div class="alert alert-primary" role="alert">-->
+    <!--    <div class="alert alert-primary" role="alert">-->
     <!--      bootstrap is OK-->
     <!--    </div>-->
-    <router-view/>
+    <!--    <a href="#/hello">hello</a>-->
+    <!--    <a href="#/list">list</a>-->
+    <router-link to="/hello" tag="span">hello</router-link>
+    <router-link to="/list">list</router-link>
+
+    <transition mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -15,12 +22,25 @@ export default {
 </script>
 
 <style>
-/*#app {*/
-/*  font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-/*  -webkit-font-smoothing: antialiased;*/
-/*  -moz-osx-font-smoothing: grayscale;*/
-/*  text-align: center;*/
-/*  color: #2c3e50;*/
-/*  margin-top: 60px;*/
-/*}*/
+/*.router-link-active,*/
+.myactive {
+  color: red;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 30px;
+  text-decoration: underline;
+  background-color: #879387;
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(140px);
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+}
+
 </style>
