@@ -2,30 +2,49 @@
   <div id="app">
     <!--    <img src="./assets/logo.png">-->
 
-    <!--        <div class="alert alert-primary" role="alert">-->
-    <!--          bootstrap is OK-->
-    <!--        </div>-->
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+        aria-hidden="true">&times;</span></button>
+      bootstrapt 3.3.7 OK
+    </div>
 
-    <!--    <div class="dropdown">-->
-    <!--      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"-->
+    <!-- Single button -->
+    <!--    <div class="btn-group">-->
+    <!--      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"-->
     <!--              aria-expanded="false">-->
-    <!--        Dropdown button-->
+    <!--        Action <span class="caret"></span>-->
     <!--      </button>-->
-    <!--      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-    <!--        <a class="dropdown-item" href="#">Action</a>-->
-    <!--        <a class="dropdown-item" href="#">Another action</a>-->
-    <!--        <a class="dropdown-item" href="#">Something else here</a>-->
-    <!--      </div>-->
+    <!--      <ul class="dropdown-menu">-->
+    <!--        <li><a href="#">Action</a></li>-->
+    <!--        <li><a href="#">Another action</a></li>-->
+    <!--        <li><a href="#">Something else here</a></li>-->
+    <!--        <li role="separator" class="divider"></li>-->
+    <!--        <li><a href="#">Separated link</a></li>-->
+    <!--      </ul>-->
     <!--    </div>-->
 
-<!--    以上仅仅是为了测试bootstrap ↑-->
+    <!--    以上仅仅是为了测试bootstrap ↑-->
 
-    <nav class="nav nav-pills">
-      <!--      tag="span"-->
-      <router-link to="/code-template" class="nav-link">code-template</router-link>
-      <router-link to="/pao-ma-deng" class="nav-link">pao-ma-deng</router-link>
-      <router-link to="/calculator" class="nav-link">Calculator</router-link>
-    </nav>
+    <ul class="nav nav-pills">
+      <!--      <li role="presentation" class="active"><a href="#">Home</a></li>-->
+      <!--      <li role="presentation"><a href="#">Profile</a></li>-->
+      <!--      <li role="presentation"><a href="#">Messages</a></li>-->
+
+      <li role="presentation">
+        <!--      tag="span"-->
+        <router-link to="/code-template" class="nav-link">code-template</router-link>
+      </li>
+      <li role="presentation">
+        <router-link to="/pao-ma-deng" class="nav-link">pao-ma-deng</router-link>
+      </li>
+      <li role="presentation">
+        <router-link to="/calculator" class="nav-link">Calculator</router-link>
+      </li>
+      <li role="presentation">
+        <router-link to="/brand-car-list" class="nav-link">品牌车列表</router-link>
+      </li>
+
+    </ul>
 
     <transition mode="out-in">
       <router-view/>
@@ -42,12 +61,12 @@ export default {
 <style>
 /*.router-link-active,*/
 .myactive {
-  color: red;
-  font-weight: 800;
-  font-style: italic;
-  font-size: 30px;
-  text-decoration: underline;
-  background-color: #879387;
+  color: #0048ff;
+  /*font-weight: 800;*/
+  /*font-style: italic;*/
+  /*font-size: 30px;*/
+  /*text-decoration: underline;*/
+  /*background-color: #879387;*/
 }
 
 .v-enter,

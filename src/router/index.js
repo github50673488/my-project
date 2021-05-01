@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import CodeTemplate from '@/components/CodeTemplate'
 import PaoMaDeng from '@/components/PaoMaDeng'
 import Calculator from '@/components/Calculator'
-
+import BrandCarList from '@/components/BrandCarList'
 Vue.use(Router)
 
 export default new Router({
@@ -23,8 +23,13 @@ export default new Router({
       path: '/calculator',
       name: 'Calculator',
       component: Calculator
+    },
+    {
+      path: '/brand-car-list',
+      name: 'BrandCarList',
+      component: BrandCarList
     }
 
   ],
-  linkActiveClass: 'nav-pills active'
+  linkActiveClass: 'btn btn-success'
 })
