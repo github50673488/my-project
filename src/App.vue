@@ -1,13 +1,31 @@
 <template>
   <div id="app">
     <!--    <img src="./assets/logo.png">-->
-    <!--    <div class="alert alert-primary" role="alert">-->
-    <!--      bootstrap is OK-->
+
+    <!--        <div class="alert alert-primary" role="alert">-->
+    <!--          bootstrap is OK-->
+    <!--        </div>-->
+
+    <!--    <div class="dropdown">-->
+    <!--      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"-->
+    <!--              aria-expanded="false">-->
+    <!--        Dropdown button-->
+    <!--      </button>-->
+    <!--      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+    <!--        <a class="dropdown-item" href="#">Action</a>-->
+    <!--        <a class="dropdown-item" href="#">Another action</a>-->
+    <!--        <a class="dropdown-item" href="#">Something else here</a>-->
+    <!--      </div>-->
     <!--    </div>-->
-    <!--    <a href="#/hello">hello</a>-->
-    <!--    <a href="#/list">list</a>-->
-    <router-link to="/hello" tag="span">hello</router-link>
-    <router-link to="/list">list</router-link>
+
+<!--    以上仅仅是为了测试bootstrap-->
+
+    <nav class="nav nav-pills">
+      <!--      tag="span"-->
+      <router-link to="/code-template" class="nav-link">code-template</router-link>
+      <router-link to="/pao-ma-deng" class="nav-link">pao-ma-deng</router-link>
+      <router-link to="/calculator" class="nav-link">Calculator</router-link>
+    </nav>
 
     <transition mode="out-in">
       <router-view/>

@@ -1,23 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import list from '@/components/list'
+import CodeTemplate from '@/components/CodeTemplate'
+import PaoMaDeng from '@/components/PaoMaDeng'
+import Calculator from '@/components/Calculator'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path: '/', redirect: '/hello'},
+    {path: '/', redirect: '/code-template'},
     {
-      path: '/hello',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/code-template',
+      name: 'CodeTemplate--just a name?',
+      component: CodeTemplate
     },
     {
-      path: '/list',
-      name: 'list',
-      component: list
+      path: '/pao-ma-deng',
+      name: 'pmd',
+      component: PaoMaDeng
+    },
+    {
+      path: '/calculator',
+      name: 'Calculator',
+      component: Calculator
     }
+
   ],
-  linkActiveClass: 'myactive'
+  linkActiveClass: 'nav-pills active'
 })

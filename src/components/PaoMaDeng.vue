@@ -1,21 +1,48 @@
 <template>
-  <ul>
-    <li v-for="item in items" :key="item.msg">
-      {{ item.msg }}
-    </li>
-  </ul>
+  <div>
+    <input type="button" value="跑起来" @click="run">
+    <input type="button" value="停下来" @click="stop">
+    <div v-cloak>{{ msg }}</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'list',
+  name: 'pmd',
   data () {
     return {
-      items: [
-        {msg: 'liao'},
-        {msg: 'yue'},
-        {msg: 'qiang'}
-      ]
+      msg: '跑马灯试一试',
+      inteverlId: null
+    }
+  },
+  methods: {
+
+    // change: function () {
+    change () {
+      var firstchar = this.msg.substring(0, 1)
+      this.msg = this.msg.substring(1) + firstchar
+      console.log('msg', this.msg)
+    },
+
+    run: function () {
+      if (!this.inteverlId) {
+        this.inteverlId = window.setInterval(
+          // () => {
+          //     var firstchar = this.msg.substring(0, 1);
+          //     this.msg = this.msg.substring(1) + firstchar;
+          //     console.log("msg", this.msg);
+          // }
+          this.change
+          , 1000
+        )
+      }
+    },
+    stop: function () {
+      if (this.inteverlId) {
+        window.clearInterval(this.inteverlId)
+        this.inteverlId = null
+      }
+      console.log('stop')
     }
   }
 }
