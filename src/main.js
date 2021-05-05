@@ -5,7 +5,13 @@ import App from './App'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
+
+import Resource from 'vue-resource'
+
 import * as filters from './Filters/'
+
+Vue.use(Resource)
+
 // 遍历所有导出的过滤器并添加到全局过滤器
 Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
@@ -49,6 +55,11 @@ Vue.directive('color', {
 
 Vue.config.productionTip = false
 Vue.config.keyCodes.f2 = 113
+
+// 如果我们通过全局配置了，请求的数据接口 根域名，则 ，在每次单独发起 http 请求的时候，请求的 url 路径，应该以相对路径开头，前面不能带 /  ，否则 不会启用根路径做拼接；
+Vue.http.options.root = 'http://api.cms.liulongbin.top/'
+// 全局启用 emulateJSON 选项
+Vue.http.options.emulateJSON = true
 
 /* eslint-disable no-new */
 new Vue({

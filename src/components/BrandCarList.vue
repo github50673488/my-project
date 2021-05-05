@@ -6,10 +6,10 @@
         <h3 class="panel-title">添加品牌</h3>
       </div>
       <div class="panel-body form-inline">
-        <label>
-          Id:
-          <input type="text" class="form-control" v-model="id">
-        </label>
+        <!--        <label>-->
+        <!--          Id:-->
+        <!--          <input type="text" class="form-control" v-model="id">-->
+        <!--        </label>-->
 
         <label>
           Name:
@@ -68,27 +68,74 @@ export default {
       name: '',
       keywords: '', // 搜索的关键字
       list: [
-        {id: 1, name: '奔驰', ctime: new Date()},
-        {id: 2, name: '宝马', ctime: new Date()}
+        // {id: 1, name: '奔驰', ctime: new Date()},
+        // {id: 2, name: '宝马', ctime: new Date()}
       ]
     }
   },
-
+  created () { // 当 vm 实例 的 data 和 methods 初始化完毕后，vm实例会自动执行created 这个生命周期函数
+    this.getAllList()
+  },
   methods: {
-    add () { // 添加的方法
-      var car = {id: this.id, name: this.name, ctime: new Date()}
-      this.list.push(car)
-      this.id = this.name = ''
-    },
-    del (id) { // 根据Id删除数据
-      var index = this.list.findIndex(item => {
-        if (item.id === id) {
-          return true
+    getAllList () { // 获取所有的品牌列表
+      // 分析：
+      // 1. 由于已经导入了 Vue-resource这个包，所以 ，可以直接通过  this.$http 来发起数据请求
+      // 2. 根据接口API文档，知道，获取列表的时候，应该发起一个 get 请求
+      // 3. this.$http.get('url').then(function(result){})
+      // 4. 当通过 then 指定回调函数之后，在回调函数中，可以拿到数据服务器返回的 result
+      // 5. 先判断 result.status 是否等于0，如果等于0，就成功了，可以 把 result.message 赋值给 this.list ; 如果不等于0，可以弹框提醒，获取数据失败！
+
+      // console.log(this.$http)
+
+      this.$http.get('api/getprodlist').then(result => {
+        // 注意： 通过 $http 获取到的数据，都在 result.body 中放着
+        var result1 = result.body
+        if (result1.status === 0) {
+          // 成功了
+          this.list = result1.message
+        } else {
+          // 失败了
+          alert('获取数据失败！')
         }
       })
+    },
 
-      // console.log(index)
-      this.list.splice(index, 1)
+    add () { // 添加的方法
+      // var car = {id: this.id, name: this.name, ctime: new Date()}
+      // this.list.push(car)
+      // this.id = this.name = ''
+
+      this.$http.post('api/addproduct', {name: this.name}).then(result => {
+        if (result.body.status === 0) {
+          // 成功了！
+          // 添加完成后，只需要手动，再调用一下 getAllList 就能刷新品牌列表了
+          this.getAllList()
+          // 清空 name
+          this.name = ''
+        } else {
+          // 失败了
+          alert('添加失败！')
+        }
+      })
+    },
+    del (id) { // 根据Id删除数据
+      // var index = this.list.findIndex(item => {
+      //   if (item.id === id) {
+      //     return true
+      //   }
+      // })
+      //
+      // // console.log(index)
+      // this.list.splice(index, 1)
+
+      this.$http.get('api/delproduct/' + id).then(result => {
+        if (result.body.status === 0) {
+          // 删除成功
+          this.getAllList()
+        } else {
+          alert('删除失败！')
+        }
+      })
     },
     search (keywords) { // 根据关键字，进行数据的搜索
       return this.list.filter(item => {
@@ -136,7 +183,7 @@ export default {
   }
 
 }
-// document.getElementById('abccc').focus()
+
 </script>
 
 <style scoped>
