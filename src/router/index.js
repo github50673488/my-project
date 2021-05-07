@@ -8,6 +8,12 @@ import RouterTest from '@/components/RouterTest'
 import Account from '@/components/router-test/Account'
 import NewsList from '@/components/router-test/NewsList'
 import ComponentTest from '@/components/ComponentTest'
+import RefsTest from '@/components/RefsTest'
+import NameRouteTest from '@/components/NameRouteTest'
+
+import Header from '@/components/name-router-test/Header'
+import LeftBox from '@/components/name-router-test/Left'
+import MainBox from '@/components/name-router-test/MainBox'
 
 Vue.use(Router)
 
@@ -40,12 +46,12 @@ export default new Router({
       component: RouterTest,
       children: [// children 属性，实现路由规则的嵌套
         {
-          path: 'account',
+          path: 'account', // 和link里头的url要写清楚不同， 这里的路由定义可不要写斜线哦!!
           name: 'Account',
           component: Account
         },
         {
-          path: 'newslist',
+          path: 'newslist', // 和link里头的url要写清楚不同， 这里的路由定义可不要写斜线哦!!
           name: 'NewsList',
           component: NewsList
         }
@@ -55,8 +61,27 @@ export default new Router({
       path: '/component-test',
       name: 'ComponentTest',
       component: ComponentTest
+    },
+    {
+      path: '/refs-test',
+      name: 'RefsTest',
+      component: RefsTest
+    },
+    {
+      path: '/name-route-test',
+      name: 'NameRouteTest',
+      component: NameRouteTest,
+      children: [// children 属性，实现路由规则的嵌套
+        {
+          path: '',
+          components: {
+            'default': Header,
+            'left': LeftBox,
+            'main': MainBox
+          }
+        }
+      ]
     }
-
   ],
   linkActiveClass: 'btn btn-success'
 })

@@ -1,6 +1,7 @@
 <template>
   <div>
-
+    <h3>{{ title }}</h3>
+    <hr>
     <div class="form-group">
       <label>评论人：</label>
       <input type="text" class="form-control" v-model="user">
@@ -27,6 +28,7 @@ export default {
       content: ''
     }
   },
+  props: ['title'],
   methods: {
     postComment () { // 发表评论的方法
       // 分析：发表评论的业务逻辑
@@ -56,5 +58,7 @@ export default {
 </script>
 
 <style scoped>
-
+h3 {
+  text-align: center;
+}
 </style>

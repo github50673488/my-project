@@ -49,6 +49,12 @@
       <li role="presentation">
         <router-link to="/component-test" class="nav-link">父子组件交互测试</router-link>
       </li>
+      <li role="presentation">
+        <router-link to="/refs-test" class="nav-link">Refs测试</router-link>
+      </li>
+      <li role="presentation">
+        <router-link to="/name-route-test" class="nav-link">命名路由经典布局</router-link>
+      </li>
 
     </ul>
 

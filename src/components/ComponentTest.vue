@@ -1,6 +1,6 @@
 <template>
   <div>
-    <cmt-box @func="loadComments"></cmt-box>
+    <cmt-box @func="loadComments" title="父亲组件给的标题"></cmt-box>
     <ul class="list-group">
       <li class="list-group-item" v-for="item in list" :key="item.id">
         <span class="badge">评论人： {{ item.user }}</span>
@@ -22,6 +22,7 @@ export default {
         {id: Date.now(), user: '江小白', content: '劝君更尽一杯酒'},
         {id: Date.now(), user: '小马', content: '我姓马， 风吹草低见牛羊的马'}
       ]
+
     }
   },
   beforeCreate () { // 注意：这里不能调用 loadComments 方法，因为在执行这个钩子函数的时候，data 和 methods 都还没有被初始化好
