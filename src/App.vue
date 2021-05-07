@@ -55,6 +55,9 @@
       <li role="presentation">
         <router-link to="/name-route-test" class="nav-link">命名路由经典布局</router-link>
       </li>
+      <li role="presentation">
+        <router-link to="/computed-test" class="nav-link">computed例子</router-link>
+      </li>
 
     </ul>
 

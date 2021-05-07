@@ -14,6 +14,7 @@ import NameRouteTest from '@/components/NameRouteTest'
 import Header from '@/components/name-router-test/Header'
 import LeftBox from '@/components/name-router-test/Left'
 import MainBox from '@/components/name-router-test/MainBox'
+import ComputedTest from '@/components/ComputedTest'
 
 Vue.use(Router)
 
@@ -51,7 +52,7 @@ export default new Router({
           component: Account
         },
         {
-          path: 'newslist', // 和link里头的url要写清楚不同， 这里的路由定义可不要写斜线哦!!
+          path: 'newslist/:id/:name', // 和link里头的url要写清楚不同， 这里的路由定义可不要写斜线哦!!注意，如果浏览器 地址 只有 /login/12，是匹配不到这个路由而显示 login的！
           name: 'NewsList',
           component: NewsList
         }
@@ -67,6 +68,12 @@ export default new Router({
       name: 'RefsTest',
       component: RefsTest
     },
+    {
+      path: '/computed-test',
+      name: 'ComputedTest',
+      component: ComputedTest
+    },
+
     {
       path: '/name-route-test',
       name: 'NameRouteTest',
