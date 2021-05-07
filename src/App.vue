@@ -43,6 +43,12 @@
       <li role="presentation">
         <router-link to="/brand-car-list" class="nav-link">品牌车列表</router-link>
       </li>
+      <li role="presentation">
+        <router-link to="/route-test" class="nav-link">路由测试</router-link>
+      </li>
+      <li role="presentation">
+        <router-link to="/component-test" class="nav-link">父子组件交互测试</router-link>
+      </li>
 
     </ul>
 
