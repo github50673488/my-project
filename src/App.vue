@@ -58,7 +58,9 @@
       <li role="presentation">
         <router-link to="/computed-test" class="nav-link">computed例子</router-link>
       </li>
-
+      <li role="presentation">
+        <router-link to="/vuex-test" class="nav-link">vuex例子</router-link>
+      </li>
     </ul>
 
     <transition mode="out-in">

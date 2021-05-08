@@ -15,6 +15,7 @@ import Header from '@/components/name-router-test/Header'
 import LeftBox from '@/components/name-router-test/Left'
 import MainBox from '@/components/name-router-test/MainBox'
 import ComputedTest from '@/components/ComputedTest'
+import VuexTest from '@/components/VuexTest'
 
 Vue.use(Router)
 
@@ -72,6 +73,11 @@ export default new Router({
       path: '/computed-test',
       name: 'ComputedTest',
       component: ComputedTest
+    },
+    {
+      path: '/vuex-test',
+      name: 'VuexTest',
+      component: VuexTest
     },
 
     {
