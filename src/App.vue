@@ -61,6 +61,9 @@
       <li role="presentation">
         <router-link to="/vuex-test" class="nav-link">vuex例子</router-link>
       </li>
+      <li role="presentation">
+        <router-link to="/slot-test" class="nav-link">slot例子</router-link>
+      </li>
     </ul>
 
     <transition mode="out-in">

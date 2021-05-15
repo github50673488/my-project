@@ -15,8 +15,13 @@ export default {
       inteverlId: null
     }
   },
+  destroyed () {
+    if (this.inteverlId) {
+      window.clearInterval(this.inteverlId)
+      this.inteverlId = null
+    }
+  },
   methods: {
-
     // change: function () {
     change () {
       var firstchar = this.msg.substring(0, 1)
